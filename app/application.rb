@@ -1,7 +1,5 @@
 class Application
 
-  @@items = Item.all
-
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
@@ -10,8 +8,8 @@ class Application
 
       item_name = req.path.split("/items/").last
 
-      if @@items.find{|i| i.name == item_name}
-        item = @@items.find{|i| i.name == item_name}
+      if Item.all.find{|i| i.name == item_name}
+        item = Item.all.find{|i| i.name == item_name}
         resp.write "#{item.price}"
       else
         resp.write "Sorry we don't have that item"
