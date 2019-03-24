@@ -1,7 +1,5 @@
 class Application
 
-  @@items = Item.all
-
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)
@@ -10,7 +8,7 @@ class Application
 
       item_name = req.path.split("/items/").last
 
-      if Item.find_by_name
+      if Item.find_by_name(item_name)
         item = Item.find_by_name
         resp.write "#{item.price}"
       else
