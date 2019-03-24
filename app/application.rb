@@ -7,7 +7,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match("/items/")
-      
+
       item_name = req.path.split("/items/").last
 
       if @@items.find{|i| i.name == item_name}
@@ -17,7 +17,7 @@ class Application
         resp.write "Sorry we don't have that item"
         resp.status = 400
       end
-      
+
     else
       resp.write "Error message"
       resp.status = 404
