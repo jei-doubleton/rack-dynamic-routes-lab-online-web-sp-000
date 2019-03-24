@@ -9,6 +9,10 @@ class Application
       item = @@items.find{|i| i.name == item_name}
 
       resp.write "#{item.price}"
+    else
+      resp.write "Error message"
+      resp.status = 404
+    end
 
   end
 
