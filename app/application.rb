@@ -8,8 +8,8 @@ class Application
 
       item_name = req.path.split("/items/").last
 
-      if Item.all.include?(item_name)
-        item = Item.all.find{|i| i.name == item_name}
+      if Item.find_by_name
+        item = Item.find_by_name
         resp.write "#{item.price}"
       else
         resp.write "Sorry we don't have that item"
