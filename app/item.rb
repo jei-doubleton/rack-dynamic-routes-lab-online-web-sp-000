@@ -8,4 +8,8 @@ class Item
     @price = price
     @@all << self
   end
+
+  def self.find_by_name(item)
+    @@all.find{|item| item == item.name}
+  end
 end
