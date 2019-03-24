@@ -7,7 +7,7 @@ class Application
     if req.path.match(/items/)
 
       item_name = req.path.split("/items/").last
-
+      binding.pry
       if Item.find_by_name(item_name)
         item = Item.find_by_name(item_name)
         resp.write "#{item.price}"
