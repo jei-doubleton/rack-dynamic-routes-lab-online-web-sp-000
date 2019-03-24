@@ -12,7 +12,7 @@ class Application
         item = Item.find_by_name(item_name)
         resp.write "#{item.price}"
       else
-        resp.write "Sorry we don't have that item"
+        resp.write "Item not found"
         resp.status = 400
       end
 
